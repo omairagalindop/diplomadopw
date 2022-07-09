@@ -1,0 +1,11 @@
+/home/omairagalindoparra/Documentos/DiplomadoPWJ/ApiServlet_Header/src/main/java/org/diplomado/apiservlet/webapp/headers/models/Producto.java
+/home/omairagalindoparra/Documentos/DiplomadoPWJ/ApiServlet_Header/src/main/java/org/diplomado/apiservlet/webapp/headers/controllers/ProductoXlsServlet.java
+/home/omairagalindoparra/Documentos/DiplomadoPWJ/ApiServlet_Header/src/main/java/org/diplomado/apiservlet/webapp/headers/controllers/LoginServlet.java
+/home/omairagalindoparra/Documentos/DiplomadoPWJ/ApiServlet_Header/src/main/java/org/diplomado/apiservlet/webapp/headers/controllers/ProductoJsonServlet.java
+/home/omairagalindoparra/Documentos/DiplomadoPWJ/ApiServlet_Header/src/main/java/org/diplomado/apiservlet/webapp/headers/controllers/BuscarProductosServlet.java
+/home/omairagalindoparra/Documentos/DiplomadoPWJ/ApiServlet_Header/src/main/java/org/diplomado/apiservlet/webapp/headers/controllers/HoraActualizadaServlet.java
+/home/omairagalindoparra/Documentos/DiplomadoPWJ/ApiServlet_Header/src/main/java/org/diplomado/apiservlet/webapp/headers/controllers/CabecerasHttpRequestServlet.java
+/home/omairagalindoparra/Documentos/DiplomadoPWJ/ApiServlet_Header/src/main/java/org/diplomado/apiservlet/webapp/headers/services/ProductoService.java
+/home/omairagalindoparra/Documentos/DiplomadoPWJ/ApiServlet_Header/src/main/java/org/diplomado/apiservlet/webapp/headers/controllers/RedirigirServlet.java
+/home/omairagalindoparra/Documentos/DiplomadoPWJ/ApiServlet_Header/src/main/java/org/diplomado/apiservlet/webapp/headers/services/ProductoServiceImpl.java
+/home/omairagalindoparra/Documentos/DiplomadoPWJ/ApiServlet_Header/src/main/java/org/diplomado/apiservlet/webapp/headers/controllers/DespacharServlet.java
