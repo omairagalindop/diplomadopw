@@ -46,9 +46,6 @@ public class ActualizarCarroServlet extends HttpServlet {
 
         Enumeration<String> enumer = request.getParameterNames();
 
-        // Iteramos a traves de los parámetros y buscamos los que empiezan con
-        // "cant_". El campo cant en la vista fueron nombrados "cant_" + productoId.
-        // Obtenemos el id de cada producto y su correspondiente cantidad ;-).
         while (enumer.hasMoreElements()) {
             String paramName = enumer.nextElement();
             if (paramName.startsWith("cant_")) {

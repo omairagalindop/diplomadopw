@@ -15,7 +15,7 @@ import org.diplomado.domiapp.webapp.services.ProductoService;
 import java.io.IOException;
 import java.util.Optional;
 
-@WebServlet("/carro/agregar")
+@WebServlet("/items/agregar/")
 public class AgregarCarroServlet extends HttpServlet {
 
     @Inject

@@ -19,6 +19,7 @@ public class Pedido implements Serializable {
     private EstadoPedido estado;
     private String nombreCliente;
     private String direccionCliente;
+    private Double tiempoEsperaOferta;
     private List<ItemPedido> items = new ArrayList<>();
 
     @Inject
@@ -66,6 +67,14 @@ public class Pedido implements Serializable {
 
     public void setDireccionCliente(String direccionCliente) {
         this.direccionCliente = direccionCliente;
+    }
+
+    public Double getTiempoEsperaOferta() {
+        return tiempoEsperaOferta;
+    }
+
+    public void setTiempoEsperaOferta(Double tiempoEsperaOferta) {
+        this.tiempoEsperaOferta = tiempoEsperaOferta;
     }
 
     public void setItems(List<ItemPedido> items) {

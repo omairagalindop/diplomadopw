@@ -16,6 +16,7 @@
                     <th>Fecha</th>
                     <th>Cliente</th>
                     <th>Direccion</th>
+                    <th>Tiempo espera oferta</th>
                     <th>Total</th>
                     <th>Estado</th>
                 </tr>
@@ -25,6 +26,7 @@
                         <td>${pedido.fechaHora}</td>
                         <td>${pedido.nombreCliente}</td>
                         <td>${pedido.direccionCliente}</td>
+                        <td>${pedido.tiempoEsperaOferta}</td>
                         <td>${pedido.total}</td>
                         <td>${pedido.estado}</td>
                             <%--        <td><input type="checkbox" value="${item.id}" name="deleteProductos" /></td>--%>

@@ -5,6 +5,7 @@ public class Usuario {
     private String username;
     private String password;
     private String email;
+    private String rol;
 
     public Long getId() {
         return id;
@@ -36,5 +37,13 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 }

@@ -73,7 +73,7 @@ public class PedidoRepositoryJdbcImpl implements CrudRepository<Pedido> {
         if (pedido.getId() != null && pedido.getId() > 0) {
 //            sql = "update pedidos set nombre=?, precio=?, categoria_id=? where id=?";
         } else {
-            sql = "insert into pedidos (fecha_generacion, estado, nombre_cliente, direccion_cliente, total) values (?,?,?,?,?)";
+            sql = "insert into pedidos (fecha_generacion, estado, nombre_cliente, direccion_cliente, total, tiempo_espera_oferta) values (?,?,?,?,?,?)";
         }
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setTimestamp(1, java.sql.Timestamp.valueOf(pedido.getFechaHora()));
@@ -81,6 +81,7 @@ public class PedidoRepositoryJdbcImpl implements CrudRepository<Pedido> {
             stmt.setString(3, pedido.getNombreCliente());
             stmt.setString(4, pedido.getDireccionCliente());
             stmt.setDouble(5, pedido.getTotal());
+            stmt.setDouble(6, pedido.getTiempoEsperaOferta());
 
             if (pedido.getId() != null && pedido.getId() > 0) {
 //                stmt.setLong(5, pedido.getId());
@@ -106,6 +107,7 @@ public class PedidoRepositoryJdbcImpl implements CrudRepository<Pedido> {
         p.setEstado(crearEstado(rs.getString("estado")));
         p.setNombreCliente(rs.getString("nombre_cliente"));
         p.setDireccionCliente(rs.getString("direccion_cliente"));
+        p.setTiempoEsperaOferta(rs.getDouble("tiempo_espera_oferta"));
 
         return p;
     }

@@ -62,6 +62,13 @@ public class PedidoFormServlet extends HttpServlet {
             total = 0.0;
         }
 
+        Double tiempoEsperaOferta;
+        try {
+            tiempoEsperaOferta = Double.valueOf(req.getParameter("tiempoEsperaOferta"));
+        } catch (NumberFormatException e) {
+            tiempoEsperaOferta = 0.0;
+        }
+
         Map<String, String> errores = new HashMap<>();
         if (estado == null || estado.isBlank()) {
             errores.put("estado", "El estado es requerido!");
@@ -75,6 +82,9 @@ public class PedidoFormServlet extends HttpServlet {
 //        if (total.equals(0)) {
 //            errores.put("total", "El precio es requerido!");
 //        }
+        if (tiempoEsperaOferta.equals(0)) {
+            errores.put("total", "El tiempo de espera es requerido!");
+        }
 
         long id;
         try {
@@ -89,6 +99,7 @@ public class PedidoFormServlet extends HttpServlet {
         pedido.setNombreCliente(nombreCliente);
         pedido.setDireccionCliente(direccionCliente);
         pedido.setTotal(total);
+        pedido.setTiempoEsperaOferta(tiempoEsperaOferta);
 
         if (errores.isEmpty()) {
             service.guardar(pedido);
