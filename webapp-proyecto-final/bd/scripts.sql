@@ -1,3 +1,5 @@
+CREATE DATABASE proyecto_domicilios;
+
 use proyecto_domicilios;
 
 -- Creación tabla productos
@@ -187,3 +189,115 @@ VALUES ('Arroz familiar', 40000, 4);
 
 INSERT INTO proyecto_domicilios.pedidos (fecha_generacion, total, estado, nombre_cliente, direccion_cliente)
 VALUES ('2022-07-10 15:24:36', 28000, 'Pendiente', 'Pascual Rodríguez', 'Calle 7');
+
+INSERT INTO proyecto_domicilios.pedidos (fecha_generacion, total, estado, nombre_cliente, direccion_cliente)
+VALUES ('2022-07-10 15:28:01', 19000, 'Pendiente', 'Juan Perez', 'Carrera 10');
+
+INSERT INTO proyecto_domicilios.pedidos (fecha_generacion, total, estado, nombre_cliente, direccion_cliente)
+VALUES ('2022-07-10 15:39:18', 34000, 'Pendiente', 'Juan Avila', 'Tv 23');
+
+-- Insert productos pedido
+
+INSERT INTO proyecto_domicilios.productos_pedido (producto_id, pedido_id, cantidad)
+VALUES (1, 1, 1);
+
+INSERT INTO proyecto_domicilios.productos_pedido (producto_id, pedido_id, cantidad)
+VALUES (5, 1, 1);
+
+INSERT INTO proyecto_domicilios.productos_pedido (producto_id, pedido_id, cantidad)
+VALUES (2, 2, 1);
+
+INSERT INTO proyecto_domicilios.productos_pedido (producto_id, pedido_id, cantidad)
+VALUES (5, 2, 1);
+
+INSERT INTO proyecto_domicilios.productos_pedido (producto_id, pedido_id, cantidad)
+VALUES (12, 3, 2);
+
+INSERT INTO proyecto_domicilios.productos_pedido (producto_id, pedido_id, cantidad)
+VALUES (15, 3, 1);
+
+-- Insert stock
+INSERT INTO proyecto_domicilios.productos_stock (producto_id, cantidad)
+VALUES (1, 300);
+
+INSERT INTO proyecto_domicilios.productos_stock (producto_id, cantidad)
+VALUES (2, 100);
+
+INSERT INTO proyecto_domicilios.productos_stock (producto_id, cantidad)
+VALUES (3, 120);
+
+INSERT INTO proyecto_domicilios.productos_stock (producto_id, cantidad)
+VALUES (4, 80);
+
+INSERT INTO proyecto_domicilios.productos_stock (producto_id, cantidad)
+VALUES (5, 400);
+
+INSERT INTO proyecto_domicilios.productos_stock (producto_id, cantidad)
+VALUES (6, 150);
+
+INSERT INTO proyecto_domicilios.productos_stock (producto_id, cantidad)
+VALUES (7, 110);
+
+INSERT INTO proyecto_domicilios.productos_stock (producto_id, cantidad)
+VALUES (8, 100.5);
+
+INSERT INTO proyecto_domicilios.productos_stock (producto_id, cantidad)
+VALUES (9, 40);
+
+INSERT INTO proyecto_domicilios.productos_stock (producto_id, cantidad)
+VALUES (10, 38);
+
+INSERT INTO proyecto_domicilios.productos_stock (producto_id, cantidad)
+VALUES (11, 65);
+
+INSERT INTO proyecto_domicilios.productos_stock (producto_id, cantidad)
+VALUES (12, 80.5);
+
+INSERT INTO proyecto_domicilios.productos_stock (producto_id, cantidad)
+VALUES (13, 25.5);
+
+INSERT INTO proyecto_domicilios.productos_stock (producto_id, cantidad)
+VALUES (14, 62);
+
+INSERT INTO proyecto_domicilios.productos_stock (producto_id, cantidad)
+VALUES (15, 85.5);
+
+INSERT INTO proyecto_domicilios.productos_stock (producto_id, cantidad)
+VALUES (16, 45.5);
+
+-- Queries
+
+SELECT pr.nombre, pr.categoria_id, pe.nombre_cliente
+FROM productos pr,
+     pedidos pe,
+     productos_pedido pp
+WHERE pp.pedido_id = 3
+  AND pp.pedido_id = pe.id
+  AND pp.producto_id = pr.id;
+
+SELECT * FROM pedidos p WHERE p.id = ?;
+
+-- Queries selección oferta
+
+SELECT MIN(oep.tiempo_entrega) min_list_price
+FROM ofertas_entrega_pedido oep
+WHERE oep.pedido_id = :idPedido
+HAVING MIN(oep.valor_domicilio);
+
+-- Insert proveedores
+INSERT INTO proyecto_domicilios.proveedores (nombre, numero_telefono)
+VALUES ('EntregaYa', '3251051560');
+
+INSERT INTO proyecto_domicilios.proveedores (nombre, numero_telefono)
+VALUES ('TeLoEntrego', '3165110554');
+
+-- Inserts ofertas entregas
+INSERT INTO proyecto_domicilios.ofertas_entrega_pedido (proveedor_id, pedido_id, valor_domicilio, tiempo_entrega)
+VALUES (1, 1, 4000, 12.5);
+
+INSERT INTO proyecto_domicilios.ofertas_entrega_pedido (proveedor_id, pedido_id, valor_domicilio, tiempo_entrega)
+VALUES (2, 1, 4500, 13);
+
+-- Insert usuarios
+INSERT INTO proyecto_domicilios.usuarios (username, password, email)
+VALUES ('ogalindop', '12345', 'omairagalindoparra@gmail.com');
