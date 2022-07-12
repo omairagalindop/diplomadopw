@@ -9,6 +9,9 @@
         <div class="alert alert-warning">Lo sentimos no hay pedidos!</div>
     </c:when>
     <c:otherwise>
+        <a class="btn btn-primary my-2 icon-bar fa-align-right col-lg-2 icon-bar"
+           href="${pageContext.request.contextPath}/pedidos/form">Crear
+            pedido</a>
         <form name="formpedido" action="${pageContext.request.contextPath}/pedido/actualizar" method="post">
             <table class="table table-hover table-striped">
                 <tr>
@@ -33,10 +36,6 @@
                     </tr>
                 </c:forEach>
             </table>
-<%--            <a class="btn btn-primary" href="javascript:document.formpedido.submit();">Crear pedido</a>--%>
-            <a class="btn btn-primary my-2 icon-bar fa-align-right col-lg-2 icon-bar"
-               href="${pageContext.request.contextPath}/pedidos/form">Crear
-                pedido</a>
         </form>
     </c:otherwise>
 </c:choose>

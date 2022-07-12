@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:if test="${username}">
 <jsp:include page="layout/header.jsp" />
 
 <h3>${title}</h3>
@@ -42,5 +43,6 @@
     <a class="btn btn-secondary" href="${pageContext.request.contextPath}/index.jsp">volver</a>
     <a class="btn btn-success" href="${pageContext.request.contextPath}/productos">seguir comprando</a>
 </div>
+</c:if>
 
 <jsp:include page="layout/footer.jsp" />
