@@ -299,5 +299,8 @@ INSERT INTO proyecto_domicilios.ofertas_entrega_pedido (proveedor_id, pedido_id,
 VALUES (2, 1, 4500, 13);
 
 -- Insert usuarios
-INSERT INTO proyecto_domicilios.usuarios (username, password, email)
-VALUES ('ogalindop', '12345', 'omairagalindoparra@gmail.com');
+INSERT INTO proyecto_domicilios.usuarios (username, password, email, rol)
+VALUES ('admin', '12345', 'admin@gmail.com', 'admin');
+
+INSERT INTO proyecto_domicilios.usuarios (username, password, email, rol)
+VALUES ('proveedor1', '12345', 'proveedor@gmail.com', 'proveedor');
