@@ -5,15 +5,12 @@ import jakarta.annotation.PreDestroy;
 import jakarta.inject.Inject;
 import org.diplomado.domiapp.webapp.configs.MysqlConn;
 import org.diplomado.domiapp.webapp.configs.Repository;
-import org.diplomado.domiapp.webapp.models.Categoria;
-import org.diplomado.domiapp.webapp.models.EstadoPedido;
+import org.diplomado.domiapp.webapp.models.EstadoPedidoEnum;
 import org.diplomado.domiapp.webapp.models.Pedido;
-import org.diplomado.domiapp.webapp.models.Producto;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @Repository
@@ -41,7 +38,7 @@ public class PedidoRepositoryJdbcImpl implements CrudRepository<Pedido> {
         List<Pedido> pedidos = new ArrayList<>();
         log.info("Listando pedidos antes: " + pedidos.size());
         try (Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM pedidos p")) {
+             ResultSet rs = stmt.executeQuery("SELECT p.* FROM pedidos p")) {
             while (rs.next()) {
                 Pedido p = obtenerPedido(rs);
                 pedidos.add(p);
@@ -108,19 +105,15 @@ public class PedidoRepositoryJdbcImpl implements CrudRepository<Pedido> {
         p.setNombreCliente(rs.getString("nombre_cliente"));
         p.setDireccionCliente(rs.getString("direccion_cliente"));
         p.setTiempoEsperaOferta(rs.getDouble("tiempo_espera_oferta"));
-
         return p;
     }
 
-    private EstadoPedido crearEstado(String estado) {
+    private EstadoPedidoEnum crearEstado(String estado) {
         switch (estado) {
             case "Enviado":
-                return EstadoPedido.ENVIADO;
-            case "Pendiente":
-                return EstadoPedido.PENDIENTE;
+                return EstadoPedidoEnum.ENVIADO;
             default:
-                return EstadoPedido.PENDIENTE;
+                return EstadoPedidoEnum.PENDIENTE;
         }
     }
-
 }

@@ -5,7 +5,9 @@ public class OfertaEntregaPedido {
     private Long id;
     private Long idProveedor;
     private Long idPedido;
-    private float tiempoEntrega;
+    private Double tiempoEntrega;
+    private Double valorDomicilio;
+    private EstadoOfertaPedidoEnum estado;
 
     public Long getId() {
         return id;
@@ -31,11 +33,27 @@ public class OfertaEntregaPedido {
         this.idPedido = idPedido;
     }
 
-    public float getTiempoEntrega() {
+    public Double getTiempoEntrega() {
         return tiempoEntrega;
     }
 
-    public void setTiempoEntrega(float tiempoEntrega) {
+    public void setTiempoEntrega(Double tiempoEntrega) {
         this.tiempoEntrega = tiempoEntrega;
+    }
+
+    public Double getValorDomicilio() {
+        return valorDomicilio;
+    }
+
+    public void setValorDomicilio(Double valorDomicilio) {
+        this.valorDomicilio = valorDomicilio;
+    }
+
+    public EstadoOfertaPedidoEnum getEstado() {
+        return estado;
+    }
+
+    public void setEstado(EstadoOfertaPedidoEnum estado) {
+        this.estado = estado;
     }
 }

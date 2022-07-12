@@ -16,7 +16,7 @@ public class Pedido implements Serializable {
     private Long id;
     private LocalDateTime fechaHora;
     private Double total;
-    private EstadoPedido estado;
+    private EstadoPedidoEnum estado;
     private String nombreCliente;
     private String direccionCliente;
     private Double tiempoEsperaOferta;
@@ -45,11 +45,11 @@ public class Pedido implements Serializable {
         this.total = total;
     }
 
-    public EstadoPedido getEstado() {
+    public EstadoPedidoEnum getEstado() {
         return estado;
     }
 
-    public void setEstado(EstadoPedido estado) {
+    public void setEstado(EstadoPedidoEnum estado) {
         this.estado = estado;
     }
 

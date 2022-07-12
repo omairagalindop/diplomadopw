@@ -6,27 +6,44 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.diplomado.domiapp.webapp.models.EstadoOfertaPedidoEnum;
+import org.diplomado.domiapp.webapp.models.OfertaEntregaPedido;
 import org.diplomado.domiapp.webapp.models.Pedido;
+import org.diplomado.domiapp.webapp.services.OfertaPedidoService;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
 
-@WebServlet("/pedido/actualizar")
-public class ActualizarCarroServlet extends HttpServlet {
+@WebServlet("/oferta/crear")
+public class AgregarOfertaServlet extends HttpServlet {
 
     @Inject
-    private Pedido pedido;
+    private OfertaPedidoService ofertaPedidoService;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        HttpSession session = req.getSession();
-//        if (session.getAttribute("carro") != null) {
-//            Carro carro = (Carro) session.getAttribute("carro");
-            updateProductos(req, pedido);
-            updateCantidades(req, pedido);
-//        }
+        Long idProveedor = Long.valueOf(req.getParameter("idProveedor"));
+        Long idPedido = Long.valueOf(req.getParameter("idPedido"));
+        Double tiempoEntrega;
+        try {
+            tiempoEntrega = Double.valueOf(req.getParameter("tiempoEntrega"));
+        } catch (NumberFormatException e) {
+            tiempoEntrega = 0.0;
+        }
+        Double valorDomicilio;
+        try {
+            valorDomicilio = Double.valueOf(req.getParameter("valorDomicilio"));
+        } catch (NumberFormatException e) {
+            valorDomicilio = 0.0;
+        }
+
+        OfertaEntregaPedido ofertaEntregaPedido = new OfertaEntregaPedido();
+        ofertaEntregaPedido.setIdProveedor(idProveedor);
+        ofertaEntregaPedido.setIdPedido(idPedido);
+        ofertaEntregaPedido.setTiempoEntrega(tiempoEntrega);
+        ofertaEntregaPedido.setValorDomicilio(valorDomicilio);
 
         resp.sendRedirect(req.getContextPath() + "/pedidos/ver");
     }

@@ -11,6 +11,6 @@
     </c:if>
 </c:if>
 <c:if test="${username == null}">
-    <h3>Lo sentimos, pero no está autorizado para ingresar a esta página!</h3>
+    <h3>Lo sentimos, pero no está autorizado para ingresar a esta página, por favor inicie sesión!</h3>
 </c:if>
 <jsp:include page="layout/footer.jsp"/>
