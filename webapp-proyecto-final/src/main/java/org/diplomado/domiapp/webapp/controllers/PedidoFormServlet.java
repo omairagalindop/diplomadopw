@@ -6,13 +6,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.diplomado.domiapp.webapp.configs.ProductoServicePrincipal;
-import org.diplomado.domiapp.webapp.models.Categoria;
-import org.diplomado.domiapp.webapp.models.EstadoPedido;
+import org.diplomado.domiapp.webapp.models.EstadoPedidoEnum;
 import org.diplomado.domiapp.webapp.models.Pedido;
-import org.diplomado.domiapp.webapp.models.Producto;
 import org.diplomado.domiapp.webapp.services.PedidoService;
-import org.diplomado.domiapp.webapp.services.ProductoService;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -107,20 +103,20 @@ public class PedidoFormServlet extends HttpServlet {
         } else {
             req.setAttribute("errores", errores);
             req.setAttribute("pedido", pedido);
-            req.setAttribute("estados", EstadoPedido.values());
+            req.setAttribute("estados", EstadoPedidoEnum.values());
             req.setAttribute("title", "Formulario de pedidos");
             getServletContext().getRequestDispatcher("/formPedido.jsp").forward(req, resp);
         }
     }
 
-    private EstadoPedido crearEstado(String estado) {
+    private EstadoPedidoEnum crearEstado(String estado) {
         switch (estado) {
             case "Enviado":
-                return EstadoPedido.ENVIADO;
+                return EstadoPedidoEnum.ENVIADO;
             case "Pendiente":
-                return EstadoPedido.PENDIENTE;
+                return EstadoPedidoEnum.PENDIENTE;
             default:
-                return EstadoPedido.PENDIENTE;
+                return EstadoPedidoEnum.PENDIENTE;
         }
     }
 }

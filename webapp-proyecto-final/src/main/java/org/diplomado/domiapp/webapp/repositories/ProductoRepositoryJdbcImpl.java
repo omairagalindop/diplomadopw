@@ -102,7 +102,6 @@ public class ProductoRepositoryJdbcImpl implements CrudRepository<Producto> {
         c.setId(rs.getLong("categoria_id"));
         c.setNombre(rs.getString("categoria"));
         p.setCategoria(c);
-
         return p;
     }
 }

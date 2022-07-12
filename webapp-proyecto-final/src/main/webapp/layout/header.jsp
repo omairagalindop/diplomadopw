@@ -25,7 +25,7 @@
          <a class="nav-link" href="${pageContext.request.contextPath}/pedidos/ver">Pedidos</a>
         </li>
         <li class="nav-item">
-         <a class="nav-link" href="${pageContext.request.contextPath}/pedidos/ver">Ofertas de entregas</a>
+         <a class="nav-link" href="${pageContext.request.contextPath}/ofertas/entregas">Ofertas de entregas</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

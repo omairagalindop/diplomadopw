@@ -1,12 +1,12 @@
 package org.diplomado.domiapp.webapp.models;
 
-public enum EstadoPedido {
+public enum EstadoOfertaPedidoEnum {
 
-    PENDIENTE("Pendiente"), ENVIADO("Enviado");
+    ACEPTADA("Aceptada"), RECHAZADA("Rechazada"), PENDIENTE("Pendiente");
 
     String nombre;
 
-    EstadoPedido(String nombre) {
+    EstadoOfertaPedidoEnum(String nombre) {
         this.nombre = nombre;
     }
 
